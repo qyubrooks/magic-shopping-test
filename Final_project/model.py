@@ -11,12 +11,16 @@ from keras.applications.xception import (
     Xception, preprocess_input, decode_predictions)
 from keras import backend as K
 
-from flask import Flask, request, redirect, url_for, jsonify, render_template
+from flask import Flask, render_template, flash, redirect, url_for, session, logging, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'food_test/test_images'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/data.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/data.db'
 
 
 model = None
@@ -118,9 +122,23 @@ def register():
 def team():
     return render_template("team.html")
 
-@app.route('/recipes')
-def recipes():
-     return render_template("recipes.html")
+@app.route("/test")
+def test():
+    engine = create_engine("sqlite:///db/data.sqlite")
+
+    # Reflect an existing database into a new model
+    Base = automap_base()
+    # Reflect the tables
+    Base.prepare(engine, reflect=True)
+    #Save references to each table
+    Recipe = Base.classes.recipes
+    Ingredient = Base.classes.ingredient
+
+    session = Session(engine)
+
+    recps = session.query(Recipe).filter(Recipe.name == 'Broccoli salad').all()
+    ingres = session.query(Ingredient).filter(Ingredient.recipes == 'Broccoli salad').all()
+    return render_template("test.html", recps=recps, ingres=ingres, title="Recipe")
 
 @app.route('/login')
 def login():
@@ -155,9 +173,9 @@ def butternut_squash_low():
     return render_template("butternut_squash_low.html")
 
 
-@app.route('/broccoli_salad')
-def broccoli_salad():
-    return render_template("broccoli_salad.html")
+# @app.route('/broccoli_salad')
+# def broccoli_salad():
+#     return render_template("broccoli_salad.html")
 
 @app.route('/broccoli_soup')
 def broccoli_soup():

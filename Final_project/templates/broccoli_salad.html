@@ -15,17 +15,39 @@
     <div class ="col-md-3">
         <div class="ingredients">
           <p>Ingredients</p>
+          <h1>Recipes</h1>
+            {% for recp in recps %}
+            <h3>Portion</h3>
+            <p>{{ recp.portion }}</p>
+            <h3>Prepare Time</h3>
+            <p>{{ recp.time }}</p>
+            <h3>Recipe Link</h3>
+            <p>{{ recp.link }}</p>
+            <h3>Total Calories</h3>
+            <p>{{ recp.calories }}</p>
+            <h3>Cooking Direction</h3>
+            <p>{{ recp.direction }}</p>
+            {% endfor %}
+            <h3>Ingredients</h3>
+            {% for ingre in ingres %}
+            <p>{{ ingre.ingredient }}, {{ ingre.cost}}, {{ ingre.sale }}</p>
+            {% endfor %}
         </div>
     </div>
     <div class ="col-md-4">
         <div class="instructions">
             <p>Instructions</p>
+            {% for ingre in ingres %}
+            <p>{{ ingre.ingredient }}</p>
+            {% endfor %}
         </div>
     </div>
     <div class ="col-md-1">
         <div class="cost_hour">
             <p>Time</p>
+            
             <p>Cost</p>
+            
         </div>
     </div>
   </div>
