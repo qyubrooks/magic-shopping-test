@@ -30,17 +30,17 @@ For each recipe, we also show each ingredient’s cost at amazon. People can com
 
 
 ### Home Page:
-![home](Readme_images/home.png)
+![home](README_images/home.png)
 
 ### Upload Food Image Page: 
-![upload](Readme_images/upload.png)
-![broccoli](Readme_images/broccoli.png)
+![upload](README_images/upload.png)
+![broccoli](README_images/broccoli.png)
 
 ### Recommend Recipes:
-![recipes](Readme_images/recipes.png)
+![recipes](README_images/recipes.png)
 
 ### Check A Desired Recipe:
-![one_recipe](Readme_images/recipe.png)
+![one_recipe](README_images/recipe.png)
 
 
 
