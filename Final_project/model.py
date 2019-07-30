@@ -103,13 +103,6 @@ def upload_file():
 
 @app.route('/broccoli_pancakes')
 def broccoli_pancakes():
-    broccoli_pancakes = recipes.query.filter_by(name="Savory Broccoli Pancakes").first()
-    ingredients = broccoli_pancakes.ingredients
-    time = broccoli_pancakes.time
-    instruction = broccoli_pancakes.direction
-    broccoli_pancakes_cost = ingredient.query.filter_by(name="Savory Broccoli Pancakes").first()
-    cost = broccoli_pancakes_cost.cost
-
     return render_template("broccoli_pancakes.html", ingredients=ingredients , instruction=instruction, time=time , cost=broccoli_pancakes_cost)
 
 
@@ -122,23 +115,50 @@ def register():
 def team():
     return render_template("team.html")
 
-@app.route("/test")
-def test():
-    engine = create_engine("sqlite:///db/data.sqlite")
+# @app.route("/recipe")
+# def recipe():
+#     engine = create_engine("sqlite:///db/data.sqlite")
 
-    # Reflect an existing database into a new model
-    Base = automap_base()
-    # Reflect the tables
-    Base.prepare(engine, reflect=True)
-    #Save references to each table
-    Recipe = Base.classes.recipes
-    Ingredient = Base.classes.ingredient
+#     # Reflect an existing database into a new model
+#     Base = automap_base()
+#     # Reflect the tables
+#     Base.prepare(engine, reflect=True)
+#     #Save references to each table
+#     Recipe = Base.classes.recipes
+#     Ingredient = Base.classes.ingredient
 
-    session = Session(engine)
+#     session = Session(engine)
 
-    recps = session.query(Recipe).filter(Recipe.name == 'Broccoli salad').all()
-    ingres = session.query(Ingredient).filter(Ingredient.recipes == 'Broccoli salad').all()
-    return render_template("test.html", recps=recps, ingres=ingres, title="Recipe")
+#     recps = session.query(Recipe).filter(Recipe.name == 'Broccoli salad').all()
+#     ingres = session.query(Ingredient).filter(Ingredient.recipes == 'Broccoli salad').all()
+#     return render_template("recipe.html", recps=recps, ingres=ingres, title="Recipe")
+
+@app.route("/recipes", methods=[ "GET","POST"])
+def recipes():
+   recps = []
+   ingres = []
+
+   engine = create_engine("sqlite:///db/data.sqlite")
+   # Reflect an existing database into a new model
+   Base = automap_base()
+   # Reflect the tables
+   Base.prepare(engine, reflect=True)
+   # Save references to each table
+   Recipe = Base.classes.recipes
+   Ingredient = Base.classes.ingredient
+   # Create session for query
+   session = Session(engine)
+
+   if request.method == "POST":
+       result = request.form["recipe"]
+
+       recps = session.query(Recipe).filter(Recipe.name == result).all()
+       ingres = session.query(Ingredient).filter(Ingredient.recipes == result).all()
+       return render_template("recipe.html", recps=recps, ingres=ingres, title="Recipe")
+       # return render_template("test.html", results=result)
+
+   return render_template("broccoli_low.html")
+
 
 @app.route('/login')
 def login():
@@ -148,34 +168,34 @@ def login():
 def upload_img():
      return render_template("upload_img.html")
 
-@app.route('/broccoli_high')
-def broccoli_high():
-    return render_template("broccoli_high.html")
+# @app.route('/broccoli_high')
+# def broccoli_high():
+#     return render_template("broccoli_high.html")
 
-@app.route('/broccoli_low')
-def broccoli_low():
-    return render_template("broccoli_low.html")
+# @app.route('/broccoli_low')
+# def broccoli_low():
+#     return render_template("broccoli_low.html")
 
-@app.route('/cucumber_high')
-def cucumber_high():
-    return render_template("cucumber_high.html")
+# @app.route('/cucumber_high')
+# def cucumber_high():
+#     return render_template("cucumber_high.html")
 
-@app.route('/cucumber_low')
-def cucumber_low():
-    return render_template("cucumber_low.html")
+# @app.route('/cucumber_low')
+# def cucumber_low():
+#     return render_template("cucumber_low.html")
 
-@app.route('/butternut_squash_high')
-def butternut_squash_high():
-    return render_template("butternut_squash_high.html")
+# @app.route('/butternut_squash_high')
+# def butternut_squash_high():
+#     return render_template("butternut_squash_high.html")
 
-@app.route('/butternut_squash_low')
-def butternut_squash_low():
-    return render_template("butternut_squash_low.html")
+# @app.route('/butternut_squash_low')
+# def butternut_squash_low():
+#     return render_template("butternut_squash_low.html")
 
 
-# @app.route('/broccoli_salad')
-# def broccoli_salad():
-#     return render_template("broccoli_salad.html")
+@app.route('/broccoli_salad')
+def broccoli_salad():
+    return render_template("broccoli_salad.html")
 
 @app.route('/broccoli_soup')
 def broccoli_soup():

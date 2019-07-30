@@ -29,13 +29,6 @@ html, body {
 }
 
 
-/* h5,p{
-    font-family: cursive;
-    color:black;
-    font-weight: bold;
-    font-size: 25px;
-} */
-
 h5{
     font-family: cursive;
     color:black;
@@ -73,7 +66,7 @@ h5{
     border-radius: 50%;
     margin-bottom: 80px;
     border-width: 7px;
-    border-color:lightgrey;
+    border-color:whitesmoke;
     border-style: solid;
 }
 
@@ -147,4 +140,12 @@ h2, h6{
 
 h6{
     font-size:20px;
+}
+
+h2{
+    font-size:25px;
+}
+
+input.recipe_button{
+    width: 17px;
 }

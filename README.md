@@ -1,1 +1,46 @@
-# magic-shopping-test
+# Shopping_App_Project
+Application for shopping recommendation.
+
+## Background:
+Our team wants to make grocery shopping more convenient. Because sometimes we go to grocery to purchase food to cook lunches or dinners, we don’t know what to purchase or what types of food to cook. Sometimes even we have an idea what to cook. It will end to miss purchase certain types of ingredients or not purchase enough amounts of food, then we couldn’t even cook the completed cuisines. 
+
+The idea of this app allows for people to upload images of their desired food and check different recipes with comprehensive ingredients, instruction, cook time and calories by using their photos. According to people’s register information, the app can predict whether the person is in high or low obesity group. If she/he is in high obesity group, the app will recommend her/him a ranking of recipes by low calories to high calories. 
+
+For each recipe, we also show each ingredient’s cost at amazon. People can compare costs from regular grocery with amazon.  
+
+
+
+## How to use the app:
+* Register/login
+* Upload the food Images 
+* View recipes
+* Select the desired recipe to check what ingredients need and how to cook in detail
+
+## Finding Data:
+
+
+## Technologies:
+*  Loaded data to database
+*  Created flask 
+*  Used Xception model and VGG19 model to predict   images
+*  Built web pages HTML5
+*  Used Javascript to upload and diplay images
+
+## Website link:
+
+
+### Home Page:
+![home](Readme_images/home.png)
+
+### Upload Food Image Page: 
+![upload](Readme_images/upload.png)
+![broccoli](Readme_images/broccoli.png)
+
+### Recommend Recipes:
+![recipes](Readme_images/recipes.png)
+
+### Check A Desired Recipe:
+![one_recipe](Readme_images/recipe.png)
+
+
+
