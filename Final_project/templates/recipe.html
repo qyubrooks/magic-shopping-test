@@ -7,16 +7,18 @@
     <div class="recipe_name">
         {% for recp in recps %}
         <h2>{{ recp.name }}</h2>
+        <img src="../static/recipes/recipe_photos/{{recp.name}}.jpg"  alt="food_recipe" style="width:100%; height: 100%" styple="float:left"></img>
         {% endfor %} 
-        <img src="../static/recipes/recipe_photos/broccoli_salad.jpg"  alt="food_recipe" style="width:100%; height: 100%" styple="float:left"></img>
-        <br>
+        <br> 
         <br>
         <div class="card" style="width: 21rem;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-4">
                         <h6>Cost</h5>
-                        <p></p>
+                        {% for total in total %}
+                        <p>{{ total }}</p>
+                        {% endfor %} 
                     </div>
                     <div class="col-sm-4">
                         <h6>Time</h5>
