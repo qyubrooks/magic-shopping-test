@@ -9,7 +9,6 @@ The idea of this app allows for people to upload images of their desired food an
 For each recipe, we also show each ingredient’s cost at amazon. People can compare costs from regular grocery with amazon.  
 
 
-
 ## How to use the app:
 * Register/login
 * Upload the food Images 
@@ -37,7 +36,10 @@ For each recipe, we also show each ingredient’s cost at amazon. People can com
 ![recipes](README_images/recipes.png)
 
 ### Check A Desired Recipe:
-![one_recipe](README_images/recipe.png)
+![pancake](README_images/pancake.png)
+
+### Fill Out Register Form to Predict Obesity
+![register](README_images/register.png)
 
 
 
