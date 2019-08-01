@@ -22,9 +22,6 @@ For each recipe, we also show each ingredient’s cost at amazon. People can com
 *  Built web pages HTML5
 *  Used Javascript to upload and diplay images
 
-## Website link:
-
-
 ### Home Page:
 ![home](README_images/home.png)
 
@@ -38,8 +35,8 @@ For each recipe, we also show each ingredient’s cost at amazon. People can com
 ### Check A Desired Recipe:
 ![pancake](README_images/pancake.png)
 
-### Fill Out Register Form to Predict Obesity
+### Fill Out Register Form to Predict Risk of Obesity
 ![register](README_images/register.png)
 
-
-
+### Prediction Result of Risk of Obesity and BMI
+![result](README_images/obesity_prediction.png)
